@@ -1,0 +1,1 @@
+/usr/bin/c++  -O0 -fprofile-arcs -ftest-coverage --coverage  --coverage -Wl,--dependency-file=CMakeFiles/test_runner_gtest.dir/link.d CMakeFiles/test_runner_gtest.dir/tests/tests_gtest.cpp.o -o test_runner_gtest  lib/libgtest_main.a lib/libgtest.a
