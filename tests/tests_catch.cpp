@@ -1,62 +1,113 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
-#include "../DynamicArray.h"
-#include "../SinglyList.h"
-#include "../Stack.h"
-#include "../Queue.h"
-#include "../HashTable.h"
-#include "../CompleteBinaryTree.h"
+#include "catch.hpp" 
+
+#include "DynamicArray.h"
+#include "SinglyList.h"
+#include "DoublyList.h"
+#include "Stack.h"
+#include "Queue.h"
+#include "HashTable.h"
+#include "CompleteBinaryTree.h"
 
 using namespace std;
 
-TEST_CASE("DynamicArray Full", "[array]") {
+TEST_CASE("DynamicArray functionality", "[Array]") {
     DynamicArray arr;
-    arr.pushBack("A");
-    REQUIRE(arr.getSize() == 1);
-    REQUIRE(arr.get(0) == "A");
-    REQUIRE_THROWS_AS(arr.get(10), out_of_range);
-
-    arr.saveToText("arr_catch.txt");
-    DynamicArray loaded;
-    loaded.loadFromText("arr_catch.txt");
-    REQUIRE(loaded.get(0) == "A");
+    
+    SECTION("Push and Get") {
+        arr.pushBack("Val1");
+        arr.pushFront("Val0"); 
+        REQUIRE(arr.getSize() == 2);
+        REQUIRE(arr.get(0) == "Val0");
+        REQUIRE(arr.get(1) == "Val1");
+    }
+    
+    SECTION("Exceptions") {
+        REQUIRE_THROWS_AS(arr.get(5), out_of_range);
+        REQUIRE_THROWS_AS(arr.removeAt(-1), out_of_range);
+    }
+    
+    SECTION("Serialization") {
+        arr.pushBack("SaveMe");
+        arr.saveToText("catch_arr.txt");
+        
+        DynamicArray loaded;
+        loaded.loadFromText("catch_arr.txt");
+        REQUIRE(loaded.getSize() == 1);
+        REQUIRE(loaded.get(0) == "SaveMe");
+    }
 }
 
-TEST_CASE("SinglyList Full", "[list]") {
+TEST_CASE("SinglyList functionality", "[SinglyList]") {
     SinglyList list;
-    list.pushBack("head");
-    REQUIRE(list.getHead() == "head");
+    list.pushBack("A");
+    list.pushBack("B");
+    
+    REQUIRE(list.getSize() == 2);
+    REQUIRE(list.getHead() == "A");
+    
+    list.popFront();
+    REQUIRE(list.getHead() == "B");
 }
 
-TEST_CASE("Stack Full", "[stack]") {
+TEST_CASE("DoublyList functionality", "[DoublyList]") {
+    DoublyList list;
+    list.pushFront("First");
+    list.pushBack("Last");
+    
+    REQUIRE(list.getTail() == "Last");
+    
+    list.popBack();
+    REQUIRE(list.getTail() == "First");
+}
+
+TEST_CASE("Stack functionality", "[Stack]") {
     Stack st;
-    st.push("1");
-    REQUIRE(st.pop() == "1");
+    st.push("10");
+    st.push("20");
+    
+    REQUIRE(st.pop() == "20");
+    REQUIRE(st.peek() == "10");
+    REQUIRE(st.pop() == "10");
     REQUIRE(st.pop() == "");
 }
 
-TEST_CASE("Queue Full", "[queue]") {
-    Queue q(5);
-    q.push("Q");
-    REQUIRE(q.pop() == "Q");
-    REQUIRE(q.pop() == "");
-}
-
-TEST_CASE("HashTable Full", "[hash]") {
-    HashTable ht;
-    ht.put("k", "v");
-    REQUIRE(ht.get("k") == "v");
-    REQUIRE(ht.get("z") == "");
-}
-
-TEST_CASE("Tree Full", "[tree]") {
-    CompleteBinaryTree tree;
-    tree.insert(50);
-    REQUIRE(tree.find(50) == true);
-    REQUIRE(tree.find(10) == false);
+TEST_CASE("Queue functionality", "[Queue]") {
+    Queue q;
+    q.push("alpha");
+    q.push("beta");
     
-    tree.saveToText("tree_catch.txt");
+    REQUIRE(q.pop() == "alpha");
+    
+    q.saveToBinary("catch_queue.bin");
+    Queue loaded;
+    loaded.loadFromBinary("catch_queue.bin");
+    REQUIRE(loaded.pop() == "beta");
+}
+
+TEST_CASE("HashTable functionality", "[HashTable]") {
+    HashTable ht(5);
+    ht.put("hello", "world");
+    ht.put("foo", "bar");
+    
+    REQUIRE(ht.get("hello") == "world");
+    REQUIRE(ht.get("foo") == "bar");
+    
+    ht.remove("hello");
+    REQUIRE(ht.get("hello") == "");
+}
+
+TEST_CASE("CompleteBinaryTree functionality", "[Tree]") {
+    CompleteBinaryTree tree;
+    tree.insert(1);
+    tree.insert(2);
+    tree.insert(3);
+    
+    REQUIRE(tree.find(3) == true);
+    REQUIRE(tree.find(4) == false);
+    
+    tree.saveToText("catch_tree.txt");
     CompleteBinaryTree loaded;
-    loaded.loadFromText("tree_catch.txt");
-    REQUIRE(loaded.find(50) == true);
+    loaded.loadFromText("catch_tree.txt");
+    REQUIRE(loaded.find(2) == true);
 }

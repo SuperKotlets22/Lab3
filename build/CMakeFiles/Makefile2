@@ -63,195 +63,125 @@ CMAKE_BINARY_DIR = /home/savvich/lab3/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/test_runner_gtest.dir/all
-all: CMakeFiles/test_runner_boost.dir/all
-all: CMakeFiles/test_runner_catch.dir/all
+all: CMakeFiles/run_google.dir/all
+all: CMakeFiles/run_boost.dir/all
+all: CMakeFiles/run_catch.dir/all
 all: CMakeFiles/run_bench.dir/all
-all: _deps/googletest-build/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/test_runner_gtest.dir/codegen
-codegen: CMakeFiles/test_runner_boost.dir/codegen
-codegen: CMakeFiles/test_runner_catch.dir/codegen
+codegen: CMakeFiles/run_google.dir/codegen
+codegen: CMakeFiles/run_boost.dir/codegen
+codegen: CMakeFiles/run_catch.dir/codegen
 codegen: CMakeFiles/run_bench.dir/codegen
-codegen: _deps/googletest-build/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
-preinstall: _deps/googletest-build/preinstall
+preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/test_runner_gtest.dir/clean
-clean: CMakeFiles/test_runner_boost.dir/clean
-clean: CMakeFiles/test_runner_catch.dir/clean
+clean: CMakeFiles/run_google.dir/clean
+clean: CMakeFiles/run_boost.dir/clean
+clean: CMakeFiles/run_catch.dir/clean
 clean: CMakeFiles/run_bench.dir/clean
-clean: _deps/googletest-build/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory _deps/googletest-build
-
-# Recursive "all" directory target.
-_deps/googletest-build/all: _deps/googletest-build/googlemock/all
-.PHONY : _deps/googletest-build/all
-
-# Recursive "codegen" directory target.
-_deps/googletest-build/codegen: _deps/googletest-build/googlemock/codegen
-.PHONY : _deps/googletest-build/codegen
-
-# Recursive "preinstall" directory target.
-_deps/googletest-build/preinstall: _deps/googletest-build/googlemock/preinstall
-.PHONY : _deps/googletest-build/preinstall
-
-# Recursive "clean" directory target.
-_deps/googletest-build/clean: _deps/googletest-build/googlemock/clean
-.PHONY : _deps/googletest-build/clean
-
-#=============================================================================
-# Directory level rules for directory _deps/googletest-build/googlemock
-
-# Recursive "all" directory target.
-_deps/googletest-build/googlemock/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
-_deps/googletest-build/googlemock/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
-_deps/googletest-build/googlemock/all: _deps/googletest-build/googletest/all
-.PHONY : _deps/googletest-build/googlemock/all
-
-# Recursive "codegen" directory target.
-_deps/googletest-build/googlemock/codegen: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/codegen
-_deps/googletest-build/googlemock/codegen: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/codegen
-_deps/googletest-build/googlemock/codegen: _deps/googletest-build/googletest/codegen
-.PHONY : _deps/googletest-build/googlemock/codegen
-
-# Recursive "preinstall" directory target.
-_deps/googletest-build/googlemock/preinstall: _deps/googletest-build/googletest/preinstall
-.PHONY : _deps/googletest-build/googlemock/preinstall
-
-# Recursive "clean" directory target.
-_deps/googletest-build/googlemock/clean: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
-_deps/googletest-build/googlemock/clean: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
-_deps/googletest-build/googlemock/clean: _deps/googletest-build/googletest/clean
-.PHONY : _deps/googletest-build/googlemock/clean
-
-#=============================================================================
-# Directory level rules for directory _deps/googletest-build/googletest
-
-# Recursive "all" directory target.
-_deps/googletest-build/googletest/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-_deps/googletest-build/googletest/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
-.PHONY : _deps/googletest-build/googletest/all
-
-# Recursive "codegen" directory target.
-_deps/googletest-build/googletest/codegen: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/codegen
-_deps/googletest-build/googletest/codegen: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/codegen
-.PHONY : _deps/googletest-build/googletest/codegen
-
-# Recursive "preinstall" directory target.
-_deps/googletest-build/googletest/preinstall:
-.PHONY : _deps/googletest-build/googletest/preinstall
-
-# Recursive "clean" directory target.
-_deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
-_deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
-.PHONY : _deps/googletest-build/googletest/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/test_runner_gtest.dir
+# Target rules for target CMakeFiles/run_google.dir
 
 # All Build rule for target.
-CMakeFiles/test_runner_gtest.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-CMakeFiles/test_runner_gtest.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_gtest.dir/build.make CMakeFiles/test_runner_gtest.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_gtest.dir/build.make CMakeFiles/test_runner_gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=15,16 "Built target test_runner_gtest"
-.PHONY : CMakeFiles/test_runner_gtest.dir/all
+CMakeFiles/run_google.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_google.dir/build.make CMakeFiles/run_google.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_google.dir/build.make CMakeFiles/run_google.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=7,8 "Built target run_google"
+.PHONY : CMakeFiles/run_google.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test_runner_gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_runner_gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 0
-.PHONY : CMakeFiles/test_runner_gtest.dir/rule
-
-# Convenience name for target.
-test_runner_gtest: CMakeFiles/test_runner_gtest.dir/rule
-.PHONY : test_runner_gtest
-
-# codegen rule for target.
-CMakeFiles/test_runner_gtest.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_gtest.dir/build.make CMakeFiles/test_runner_gtest.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=15,16 "Finished codegen for target test_runner_gtest"
-.PHONY : CMakeFiles/test_runner_gtest.dir/codegen
-
-# clean rule for target.
-CMakeFiles/test_runner_gtest.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_gtest.dir/build.make CMakeFiles/test_runner_gtest.dir/clean
-.PHONY : CMakeFiles/test_runner_gtest.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/test_runner_boost.dir
-
-# All Build rule for target.
-CMakeFiles/test_runner_boost.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_boost.dir/build.make CMakeFiles/test_runner_boost.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_boost.dir/build.make CMakeFiles/test_runner_boost.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=11,12 "Built target test_runner_boost"
-.PHONY : CMakeFiles/test_runner_boost.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/test_runner_boost.dir/rule: cmake_check_build_system
+CMakeFiles/run_google.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_runner_boost.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run_google.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 0
-.PHONY : CMakeFiles/test_runner_boost.dir/rule
+.PHONY : CMakeFiles/run_google.dir/rule
 
 # Convenience name for target.
-test_runner_boost: CMakeFiles/test_runner_boost.dir/rule
-.PHONY : test_runner_boost
+run_google: CMakeFiles/run_google.dir/rule
+.PHONY : run_google
 
 # codegen rule for target.
-CMakeFiles/test_runner_boost.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_boost.dir/build.make CMakeFiles/test_runner_boost.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=11,12 "Finished codegen for target test_runner_boost"
-.PHONY : CMakeFiles/test_runner_boost.dir/codegen
+CMakeFiles/run_google.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_google.dir/build.make CMakeFiles/run_google.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=7,8 "Finished codegen for target run_google"
+.PHONY : CMakeFiles/run_google.dir/codegen
 
 # clean rule for target.
-CMakeFiles/test_runner_boost.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_boost.dir/build.make CMakeFiles/test_runner_boost.dir/clean
-.PHONY : CMakeFiles/test_runner_boost.dir/clean
+CMakeFiles/run_google.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_google.dir/build.make CMakeFiles/run_google.dir/clean
+.PHONY : CMakeFiles/run_google.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test_runner_catch.dir
+# Target rules for target CMakeFiles/run_boost.dir
 
 # All Build rule for target.
-CMakeFiles/test_runner_catch.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_catch.dir/build.make CMakeFiles/test_runner_catch.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_catch.dir/build.make CMakeFiles/test_runner_catch.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=13,14 "Built target test_runner_catch"
-.PHONY : CMakeFiles/test_runner_catch.dir/all
+CMakeFiles/run_boost.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_boost.dir/build.make CMakeFiles/run_boost.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_boost.dir/build.make CMakeFiles/run_boost.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=3,4 "Built target run_boost"
+.PHONY : CMakeFiles/run_boost.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test_runner_catch.dir/rule: cmake_check_build_system
+CMakeFiles/run_boost.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_runner_catch.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run_boost.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 0
-.PHONY : CMakeFiles/test_runner_catch.dir/rule
+.PHONY : CMakeFiles/run_boost.dir/rule
 
 # Convenience name for target.
-test_runner_catch: CMakeFiles/test_runner_catch.dir/rule
-.PHONY : test_runner_catch
+run_boost: CMakeFiles/run_boost.dir/rule
+.PHONY : run_boost
 
 # codegen rule for target.
-CMakeFiles/test_runner_catch.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_catch.dir/build.make CMakeFiles/test_runner_catch.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=13,14 "Finished codegen for target test_runner_catch"
-.PHONY : CMakeFiles/test_runner_catch.dir/codegen
+CMakeFiles/run_boost.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_boost.dir/build.make CMakeFiles/run_boost.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=3,4 "Finished codegen for target run_boost"
+.PHONY : CMakeFiles/run_boost.dir/codegen
 
 # clean rule for target.
-CMakeFiles/test_runner_catch.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_catch.dir/build.make CMakeFiles/test_runner_catch.dir/clean
-.PHONY : CMakeFiles/test_runner_catch.dir/clean
+CMakeFiles/run_boost.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_boost.dir/build.make CMakeFiles/run_boost.dir/clean
+.PHONY : CMakeFiles/run_boost.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/run_catch.dir
+
+# All Build rule for target.
+CMakeFiles/run_catch.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_catch.dir/build.make CMakeFiles/run_catch.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_catch.dir/build.make CMakeFiles/run_catch.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=5,6 "Built target run_catch"
+.PHONY : CMakeFiles/run_catch.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/run_catch.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run_catch.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 0
+.PHONY : CMakeFiles/run_catch.dir/rule
+
+# Convenience name for target.
+run_catch: CMakeFiles/run_catch.dir/rule
+.PHONY : run_catch
+
+# codegen rule for target.
+CMakeFiles/run_catch.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_catch.dir/build.make CMakeFiles/run_catch.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=5,6 "Finished codegen for target run_catch"
+.PHONY : CMakeFiles/run_catch.dir/codegen
+
+# clean rule for target.
+CMakeFiles/run_catch.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_catch.dir/build.make CMakeFiles/run_catch.dir/clean
+.PHONY : CMakeFiles/run_catch.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/run_bench.dir
@@ -260,7 +190,7 @@ CMakeFiles/test_runner_catch.dir/clean:
 CMakeFiles/run_bench.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_bench.dir/build.make CMakeFiles/run_bench.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_bench.dir/build.make CMakeFiles/run_bench.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=9,10 "Built target run_bench"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=1,2 "Built target run_bench"
 .PHONY : CMakeFiles/run_bench.dir/all
 
 # Build rule for subdir invocation for target.
@@ -277,142 +207,13 @@ run_bench: CMakeFiles/run_bench.dir/rule
 # codegen rule for target.
 CMakeFiles/run_bench.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_bench.dir/build.make CMakeFiles/run_bench.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=9,10 "Finished codegen for target run_bench"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=1,2 "Finished codegen for target run_bench"
 .PHONY : CMakeFiles/run_bench.dir/codegen
 
 # clean rule for target.
 CMakeFiles/run_bench.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_bench.dir/build.make CMakeFiles/run_bench.dir/clean
 .PHONY : CMakeFiles/run_bench.dir/clean
-
-#=============================================================================
-# Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
-
-# All Build rule for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=1,2 "Built target gmock"
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
-
-# Build rule for subdir invocation for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 0
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
-
-# Convenience name for target.
-gmock: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
-.PHONY : gmock
-
-# codegen rule for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=1,2 "Finished codegen for target gmock"
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/codegen
-
-# clean rule for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
-
-#=============================================================================
-# Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
-
-# All Build rule for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
-_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=3,4 "Built target gmock_main"
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
-
-# Build rule for subdir invocation for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 0
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
-
-# Convenience name for target.
-gmock_main: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
-.PHONY : gmock_main
-
-# codegen rule for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=3,4 "Finished codegen for target gmock_main"
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/codegen
-
-# clean rule for target.
-_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
-.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
-
-#=============================================================================
-# Target rules for target _deps/googletest-build/googletest/CMakeFiles/gtest.dir
-
-# All Build rule for target.
-_deps/googletest-build/googletest/CMakeFiles/gtest.dir/all:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=5,6 "Built target gtest"
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-
-# Build rule for subdir invocation for target.
-_deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 0
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
-
-# Convenience name for target.
-gtest: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
-.PHONY : gtest
-
-# codegen rule for target.
-_deps/googletest-build/googletest/CMakeFiles/gtest.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=5,6 "Finished codegen for target gtest"
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/codegen
-
-# clean rule for target.
-_deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
-
-#=============================================================================
-# Target rules for target _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
-
-# All Build rule for target.
-_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/depend
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=7,8 "Built target gtest_main"
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
-
-# Build rule for subdir invocation for target.
-_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles 0
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
-
-# Convenience name for target.
-gtest_main: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
-.PHONY : gtest_main
-
-# codegen rule for target.
-_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/savvich/lab3/build/CMakeFiles --progress-num=7,8 "Finished codegen for target gtest_main"
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/codegen
-
-# clean rule for target.
-_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
-.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,0 +1,1 @@
+/usr/bin/c++ --coverage -Wl,--dependency-file=CMakeFiles/run_boost.dir/link.d CMakeFiles/run_boost.dir/tests/tests_boost.cpp.o -o run_boost  -lgcov

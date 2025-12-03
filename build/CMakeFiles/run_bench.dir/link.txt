@@ -1,1 +1,1 @@
-/usr/bin/c++  -O0 -fprofile-arcs -ftest-coverage --coverage  --coverage -Wl,--dependency-file=CMakeFiles/run_bench.dir/link.d CMakeFiles/run_bench.dir/tests/bench_main.cpp.o -o run_bench
+/usr/bin/c++ --coverage -Wl,--dependency-file=CMakeFiles/run_bench.dir/link.d CMakeFiles/run_bench.dir/tests/bench_main.cpp.o -o run_bench  -lgcov

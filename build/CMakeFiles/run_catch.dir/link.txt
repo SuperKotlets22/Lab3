@@ -1,0 +1,1 @@
+/usr/bin/c++ --coverage -Wl,--dependency-file=CMakeFiles/run_catch.dir/link.d CMakeFiles/run_catch.dir/tests/tests_catch.cpp.o -o run_catch  -lgcov

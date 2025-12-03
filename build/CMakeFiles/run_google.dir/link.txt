@@ -1,0 +1,1 @@
+/usr/bin/c++ --coverage -Wl,--dependency-file=CMakeFiles/run_google.dir/link.d CMakeFiles/run_google.dir/tests/tests_google.cpp.o -o run_google  /usr/lib/x86_64-linux-gnu/libgtest.a /usr/lib/x86_64-linux-gnu/libgtest_main.a -lpthread -lgcov /usr/lib/x86_64-linux-gnu/libgtest.a

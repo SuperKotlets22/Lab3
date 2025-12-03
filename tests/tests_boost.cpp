@@ -1,73 +1,115 @@
-#define BOOST_TEST_MODULE Lab3Tests
+#define BOOST_TEST_MODULE Lab3_Tests
 #include <boost/test/included/unit_test.hpp>
-#include "../DynamicArray.h"
-#include "../SinglyList.h"
-#include "../Stack.h"
-#include "../Queue.h"
-#include "../HashTable.h"
-#include "../CompleteBinaryTree.h"
+
+#include "DynamicArray.h"
+#include "SinglyList.h"
+#include "DoublyList.h"
+#include "Stack.h"
+#include "Queue.h"
+#include "HashTable.h"
+#include "CompleteBinaryTree.h"
 
 using namespace std;
 
-BOOST_AUTO_TEST_CASE(DynamicArray_Full) {
+//  DYNAMIC ARRAY 
+BOOST_AUTO_TEST_CASE(DynamicArray_Ops) {
     DynamicArray arr;
-    for(int i=0; i<10; ++i) arr.pushBack(to_string(i));
-    BOOST_CHECK_EQUAL(arr.getSize(), 10);
-    BOOST_CHECK_EQUAL(arr.get(0), "0");
-    BOOST_CHECK_THROW(arr.get(-1), out_of_range);
-
+    arr.pushBack("A");
+    arr.pushBack("B");
+    
+    BOOST_CHECK_EQUAL(arr.getSize(), 2);
+    BOOST_CHECK_EQUAL(arr.get(1), "B");
+    
+    arr.set(0, "Z");
+    BOOST_CHECK_EQUAL(arr.get(0), "Z");
+    
+    BOOST_CHECK_THROW(arr.get(10), out_of_range);
+    
     // Сериализация
-    arr.saveToText("arr_boost.txt");
+    arr.saveToText("boost_arr.txt");
     DynamicArray loaded;
-    loaded.loadFromText("arr_boost.txt");
-    BOOST_CHECK_EQUAL(loaded.getSize(), 10);
+    loaded.loadFromText("boost_arr.txt");
+    BOOST_CHECK_EQUAL(loaded.getSize(), 2);
+    BOOST_CHECK_EQUAL(loaded.get(0), "Z");
 }
 
-BOOST_AUTO_TEST_CASE(SinglyList_Full) {
+//  SINGLY LIST 
+BOOST_AUTO_TEST_CASE(SinglyList_Ops) {
     SinglyList list;
-    list.pushBack("val1");
-    BOOST_CHECK_EQUAL(list.getHead(), "val1");
+    list.pushBack("1");
+    list.pushBack("2");
     
-    list.saveToText("list_boost.txt");
-    SinglyList loaded;
-    loaded.loadFromText("list_boost.txt");
-    BOOST_CHECK_EQUAL(loaded.getHead(), "val1");
+    BOOST_CHECK_EQUAL(list.getSize(), 2);
+    
+    list.popFront();
+    BOOST_CHECK_EQUAL(list.getHead(), "2");
+    
+    list.clear();
+    BOOST_CHECK_EQUAL(list.getSize(), 0);
 }
 
-BOOST_AUTO_TEST_CASE(Stack_Full) {
+//  DOUBLY LIST 
+BOOST_AUTO_TEST_CASE(DoublyList_Ops) {
+    DoublyList list;
+    list.pushFront("Head");
+    list.pushBack("Tail");
+    
+    BOOST_CHECK_EQUAL(list.getTail(), "Tail");
+    
+    list.popBack();
+    BOOST_CHECK_EQUAL(list.getTail(), "Head");
+}
+
+//  STACK 
+BOOST_AUTO_TEST_CASE(Stack_Ops) {
     Stack st;
-    st.push("A");
-    st.push("B");
-    BOOST_CHECK_EQUAL(st.pop(), "B");
-    BOOST_CHECK_EQUAL(st.pop(), "A");
-    BOOST_CHECK_EQUAL(st.pop(), "");
-}
-
-BOOST_AUTO_TEST_CASE(Queue_Full) {
-    Queue q(5);
-    q.push("1");
-    q.push("2");
-    BOOST_CHECK_EQUAL(q.pop(), "1");
-    BOOST_CHECK_EQUAL(q.pop(), "2");
-    BOOST_CHECK_EQUAL(q.pop(), "");
-}
-
-BOOST_AUTO_TEST_CASE(HashTable_Full) {
-    HashTable ht;
-    ht.put("key", "value");
-    BOOST_CHECK_EQUAL(ht.get("key"), "value");
-    BOOST_CHECK_EQUAL(ht.get("no"), "");
-}
-
-BOOST_AUTO_TEST_CASE(Tree_Full) {
-    CompleteBinaryTree tree;
-    tree.insert(100);
-    tree.insert(200);
-    BOOST_CHECK(tree.find(100));
-    BOOST_CHECK(!tree.find(500));
+    st.push("data");
+    BOOST_CHECK_EQUAL(st.peek(), "data");
     
-    tree.saveToText("tree_boost.txt");
+    string val = st.pop();
+    BOOST_CHECK_EQUAL(val, "data");
+    BOOST_CHECK_EQUAL(st.getSize(), 0);
+}
+
+//  QUEUE 
+BOOST_AUTO_TEST_CASE(Queue_Ops) {
+    Queue q;
+    q.push("one");
+    q.push("two");
+    
+    BOOST_CHECK_EQUAL(q.pop(), "one");
+    BOOST_CHECK_EQUAL(q.peek(), "two");
+    
+    q.saveToBinary("boost_queue.bin");
+    Queue loaded;
+    loaded.loadFromBinary("boost_queue.bin");
+    BOOST_CHECK_EQUAL(loaded.peek(), "two");
+}
+
+//  HASH TABLE 
+BOOST_AUTO_TEST_CASE(HashTable_Ops) {
+    HashTable ht;
+    ht.put("user", "admin");
+    ht.put("pass", "1234");
+    
+    BOOST_CHECK_EQUAL(ht.get("user"), "admin");
+    
+    ht.remove("user");
+    BOOST_CHECK_EQUAL(ht.get("user"), "");
+}
+
+//  TREE 
+BOOST_AUTO_TEST_CASE(Tree_Ops) {
+    CompleteBinaryTree tree;
+    tree.insert(50);
+    tree.insert(25);
+    tree.insert(75);
+    
+    BOOST_CHECK(tree.find(75));
+    BOOST_CHECK(!tree.find(100));
+    
+    tree.saveToText("boost_tree.txt");
     CompleteBinaryTree loaded;
-    loaded.loadFromText("tree_boost.txt");
-    BOOST_CHECK(loaded.find(200));
+    loaded.loadFromText("boost_tree.txt");
+    BOOST_CHECK(loaded.find(25));
 }

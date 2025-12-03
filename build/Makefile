@@ -85,51 +85,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"gmock\" \"gtest\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/snap/cmake/1499/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/snap/cmake/1499/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/snap/cmake/1499/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/snap/cmake/1499/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/snap/cmake/1499/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/snap/cmake/1499/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/savvich/lab3/build/CMakeFiles /home/savvich/lab3/build//CMakeFiles/progress.marks
@@ -162,43 +117,43 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_runner_gtest
+# Target rules for targets named run_google
 
 # Build rule for target.
-test_runner_gtest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_runner_gtest
-.PHONY : test_runner_gtest
+run_google: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_google
+.PHONY : run_google
 
 # fast build rule for target.
-test_runner_gtest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_gtest.dir/build.make CMakeFiles/test_runner_gtest.dir/build
-.PHONY : test_runner_gtest/fast
+run_google/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_google.dir/build.make CMakeFiles/run_google.dir/build
+.PHONY : run_google/fast
 
 #=============================================================================
-# Target rules for targets named test_runner_boost
+# Target rules for targets named run_boost
 
 # Build rule for target.
-test_runner_boost: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_runner_boost
-.PHONY : test_runner_boost
+run_boost: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_boost
+.PHONY : run_boost
 
 # fast build rule for target.
-test_runner_boost/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_boost.dir/build.make CMakeFiles/test_runner_boost.dir/build
-.PHONY : test_runner_boost/fast
+run_boost/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_boost.dir/build.make CMakeFiles/run_boost.dir/build
+.PHONY : run_boost/fast
 
 #=============================================================================
-# Target rules for targets named test_runner_catch
+# Target rules for targets named run_catch
 
 # Build rule for target.
-test_runner_catch: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_runner_catch
-.PHONY : test_runner_catch
+run_catch: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_catch
+.PHONY : run_catch
 
 # fast build rule for target.
-test_runner_catch/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_catch.dir/build.make CMakeFiles/test_runner_catch.dir/build
-.PHONY : test_runner_catch/fast
+run_catch/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_catch.dir/build.make CMakeFiles/run_catch.dir/build
+.PHONY : run_catch/fast
 
 #=============================================================================
 # Target rules for targets named run_bench
@@ -212,58 +167,6 @@ run_bench: cmake_check_build_system
 run_bench/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_bench.dir/build.make CMakeFiles/run_bench.dir/build
 .PHONY : run_bench/fast
-
-#=============================================================================
-# Target rules for targets named gmock
-
-# Build rule for target.
-gmock: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
-.PHONY : gmock
-
-# fast build rule for target.
-gmock/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
-.PHONY : gmock/fast
-
-#=============================================================================
-# Target rules for targets named gmock_main
-
-# Build rule for target.
-gmock_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
-.PHONY : gmock_main
-
-# fast build rule for target.
-gmock_main/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
-.PHONY : gmock_main/fast
-
-#=============================================================================
-# Target rules for targets named gtest
-
-# Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
-.PHONY : gtest
-
-# fast build rule for target.
-gtest/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
-.PHONY : gtest/fast
-
-#=============================================================================
-# Target rules for targets named gtest_main
-
-# Build rule for target.
-gtest_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
-.PHONY : gtest_main
-
-# fast build rule for target.
-gtest_main/fast:
-	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
-.PHONY : gtest_main/fast
 
 tests/bench_main.o: tests/bench_main.cpp.o
 .PHONY : tests/bench_main.o
@@ -294,7 +197,7 @@ tests/tests_boost.o: tests/tests_boost.cpp.o
 
 # target to build an object file
 tests/tests_boost.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_boost.dir/build.make CMakeFiles/test_runner_boost.dir/tests/tests_boost.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_boost.dir/build.make CMakeFiles/run_boost.dir/tests/tests_boost.cpp.o
 .PHONY : tests/tests_boost.cpp.o
 
 tests/tests_boost.i: tests/tests_boost.cpp.i
@@ -302,7 +205,7 @@ tests/tests_boost.i: tests/tests_boost.cpp.i
 
 # target to preprocess a source file
 tests/tests_boost.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_boost.dir/build.make CMakeFiles/test_runner_boost.dir/tests/tests_boost.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_boost.dir/build.make CMakeFiles/run_boost.dir/tests/tests_boost.cpp.i
 .PHONY : tests/tests_boost.cpp.i
 
 tests/tests_boost.s: tests/tests_boost.cpp.s
@@ -310,7 +213,7 @@ tests/tests_boost.s: tests/tests_boost.cpp.s
 
 # target to generate assembly for a file
 tests/tests_boost.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_boost.dir/build.make CMakeFiles/test_runner_boost.dir/tests/tests_boost.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_boost.dir/build.make CMakeFiles/run_boost.dir/tests/tests_boost.cpp.s
 .PHONY : tests/tests_boost.cpp.s
 
 tests/tests_catch.o: tests/tests_catch.cpp.o
@@ -318,7 +221,7 @@ tests/tests_catch.o: tests/tests_catch.cpp.o
 
 # target to build an object file
 tests/tests_catch.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_catch.dir/build.make CMakeFiles/test_runner_catch.dir/tests/tests_catch.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_catch.dir/build.make CMakeFiles/run_catch.dir/tests/tests_catch.cpp.o
 .PHONY : tests/tests_catch.cpp.o
 
 tests/tests_catch.i: tests/tests_catch.cpp.i
@@ -326,7 +229,7 @@ tests/tests_catch.i: tests/tests_catch.cpp.i
 
 # target to preprocess a source file
 tests/tests_catch.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_catch.dir/build.make CMakeFiles/test_runner_catch.dir/tests/tests_catch.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_catch.dir/build.make CMakeFiles/run_catch.dir/tests/tests_catch.cpp.i
 .PHONY : tests/tests_catch.cpp.i
 
 tests/tests_catch.s: tests/tests_catch.cpp.s
@@ -334,32 +237,32 @@ tests/tests_catch.s: tests/tests_catch.cpp.s
 
 # target to generate assembly for a file
 tests/tests_catch.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_catch.dir/build.make CMakeFiles/test_runner_catch.dir/tests/tests_catch.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_catch.dir/build.make CMakeFiles/run_catch.dir/tests/tests_catch.cpp.s
 .PHONY : tests/tests_catch.cpp.s
 
-tests/tests_gtest.o: tests/tests_gtest.cpp.o
-.PHONY : tests/tests_gtest.o
+tests/tests_google.o: tests/tests_google.cpp.o
+.PHONY : tests/tests_google.o
 
 # target to build an object file
-tests/tests_gtest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_gtest.dir/build.make CMakeFiles/test_runner_gtest.dir/tests/tests_gtest.cpp.o
-.PHONY : tests/tests_gtest.cpp.o
+tests/tests_google.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_google.dir/build.make CMakeFiles/run_google.dir/tests/tests_google.cpp.o
+.PHONY : tests/tests_google.cpp.o
 
-tests/tests_gtest.i: tests/tests_gtest.cpp.i
-.PHONY : tests/tests_gtest.i
+tests/tests_google.i: tests/tests_google.cpp.i
+.PHONY : tests/tests_google.i
 
 # target to preprocess a source file
-tests/tests_gtest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_gtest.dir/build.make CMakeFiles/test_runner_gtest.dir/tests/tests_gtest.cpp.i
-.PHONY : tests/tests_gtest.cpp.i
+tests/tests_google.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_google.dir/build.make CMakeFiles/run_google.dir/tests/tests_google.cpp.i
+.PHONY : tests/tests_google.cpp.i
 
-tests/tests_gtest.s: tests/tests_gtest.cpp.s
-.PHONY : tests/tests_gtest.s
+tests/tests_google.s: tests/tests_google.cpp.s
+.PHONY : tests/tests_google.s
 
 # target to generate assembly for a file
-tests/tests_gtest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_runner_gtest.dir/build.make CMakeFiles/test_runner_gtest.dir/tests/tests_gtest.cpp.s
-.PHONY : tests/tests_gtest.cpp.s
+tests/tests_google.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_google.dir/build.make CMakeFiles/run_google.dir/tests/tests_google.cpp.s
+.PHONY : tests/tests_google.cpp.s
 
 # Help Target
 help:
@@ -368,19 +271,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... install"
-	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... gmock"
-	@echo "... gmock_main"
-	@echo "... gtest"
-	@echo "... gtest_main"
 	@echo "... run_bench"
-	@echo "... test_runner_boost"
-	@echo "... test_runner_catch"
-	@echo "... test_runner_gtest"
+	@echo "... run_boost"
+	@echo "... run_catch"
+	@echo "... run_google"
 	@echo "... tests/bench_main.o"
 	@echo "... tests/bench_main.i"
 	@echo "... tests/bench_main.s"
@@ -390,9 +285,9 @@ help:
 	@echo "... tests/tests_catch.o"
 	@echo "... tests/tests_catch.i"
 	@echo "... tests/tests_catch.s"
-	@echo "... tests/tests_gtest.o"
-	@echo "... tests/tests_gtest.i"
-	@echo "... tests/tests_gtest.s"
+	@echo "... tests/tests_google.o"
+	@echo "... tests/tests_google.i"
+	@echo "... tests/tests_google.s"
 .PHONY : help
 
 

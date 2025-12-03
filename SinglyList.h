@@ -1,85 +1,225 @@
-#pragma once
+#ifndef SINGLYLIST_H
+#define SINGLYLIST_H
+
 #include <iostream>
-#include <fstream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
-struct SNode {
-    string val;
-    SNode* next;
-    SNode(string v) : val(v), next(nullptr) {}
+struct Node {
+    string data;
+    Node* next;
+    Node(string val) : data(val), next(nullptr) {}
 };
 
 class SinglyList {
 private:
-    SNode* head;
-    SNode* tail;
+    Node* head;
+    Node* tail;
     int size;
 
 public:
     SinglyList() : head(nullptr), tail(nullptr), size(0) {}
 
     ~SinglyList() {
+        clear();
+    }
+
+    void clear() {
         while (head) {
-            SNode* temp = head;
+            Node* temp = head;
             head = head->next;
             delete temp;
         }
+        tail = nullptr;
+        size = 0;
     }
 
-    void pushBack(string val) {
-        SNode* node = new SNode(val);
-        if (!head) head = tail = node;
-        else {
-            tail->next = node;
-            tail = node;
+    // 1. Добавление в голову
+    void pushFront(const string& val) {
+        Node* newNode = new Node(val);
+        newNode->next = head;
+        head = newNode;
+        if (!tail) tail = head;
+        size++;
+    }
+
+    // 2. Добавление в хвост
+    void pushBack(const string& val) {
+        Node* newNode = new Node(val);
+        if (!head) {
+            head = tail = newNode;
+        } else {
+            tail->next = newNode;
+            tail = newNode;
         }
         size++;
     }
 
-    string getHead() {
-        if (!head) return "";
-        return head->val;
-    }
-
-    void saveToText(string filename) {
-        ofstream file(filename);
-        file << size << endl;
-        SNode* curr = head;
-        while (curr) {
-            file << curr->val << endl;
-            curr = curr->next;
+    // 3. Добавление ПОСЛЕ заданного значения
+    void insertAfter(const string& target, const string& val) {
+        Node* current = head;
+        while (current) {
+            if (current->data == target) {
+                Node* newNode = new Node(val);
+                newNode->next = current->next;
+                current->next = newNode;
+                if (current == tail) tail = newNode; // Обновляем хвост
+                size++;
+                return;
+            }
+            current = current->next;
         }
-        file.close();
     }
 
-    void loadFromText(string filename) {
-        ifstream file(filename);
-        int newSize;
-        file >> newSize;
-        string trash, val;
-        getline(file, trash);
+    // 4. Добавление ДО заданного значения
+    void insertBefore(const string& target, const string& val) {
+        if (!head) return;
         
-        // очистка не реализована для краткости, подразумевается пустой список
-        for(int i=0; i<newSize; i++) {
-            getline(file, val);
-            pushBack(val);
+        if (head->data == target) {
+            pushFront(val);
+            return;
+        }
+
+        Node* current = head;
+        while (current->next) {
+            if (current->next->data == target) {
+                Node* newNode = new Node(val);
+                newNode->next = current->next;
+                current->next = newNode;
+                size++;
+                return;
+            }
+            current = current->next;
+        }
+    }
+
+    // 5. Удаление с головы
+    void popFront() {
+        if (!head) return;
+        Node* temp = head;
+        head = head->next;
+        if (!head) tail = nullptr;
+        delete temp;
+        size--;
+    }
+
+    // 6. Удаление с хвоста
+    void popBack() {
+        if (!head) return;
+        if (head == tail) {
+            delete head;
+            head = tail = nullptr;
+        } else {
+            Node* current = head;
+            while (current->next != tail) {
+                current = current->next;
+            }
+            delete tail;
+            tail = current;
+            tail->next = nullptr;
+        }
+        size--;
+    }
+
+    // 7. Удаление по значению
+    void removeByValue(const string& val) {
+        if (!head) return;
+
+        if (head->data == val) {
+            popFront();
+            return;
+        }
+
+        Node* current = head;
+        while (current->next) {
+            if (current->next->data == val) {
+                Node* temp = current->next;
+                current->next = temp->next;
+                if (temp == tail) tail = current; // Обновляем хвост
+                delete temp;
+                size--;
+                return;
+            }
+            current = current->next;
+        }
+    }
+
+    // 8. Поиск (Read)
+    bool search(const string& val) const {
+        Node* current = head;
+        while (current) {
+            if (current->data == val) return true;
+            current = current->next;
+        }
+        return false;
+    }
+
+    string getHead() const { return head ? head->data : ""; }
+    int getSize() const { return size; }
+
+    void print() const {
+        Node* curr = head;
+        while (curr) {
+            cout << curr->data << " -> ";
+            curr = curr->next;
+        }
+        cout << "NULL" << endl;
+    }
+
+    void saveToText(const string& filename) {
+        ofstream file(filename);
+        Node* curr = head;
+        while(curr) {
+            file << curr->data << endl;
+            curr = curr->next;
         }
         file.close();
     }
-    
-    // бинарная сериализация аналогична массиву, идем по узлам
-    void saveToBinary(string filename) {
+
+    void loadFromText(const string& filename) {
+        clear();
+        ifstream file(filename);
+        if(!file.is_open()) return;
+        string line;
+        while(getline(file, line)) {
+            pushBack(line);
+        }
+        file.close();
+    }
+
+    void saveToBinary(const string& filename) {
         ofstream file(filename, ios::binary);
-        file.write((char*)&size, sizeof(size));
-        SNode* curr = head;
+        int s = size;
+        file.write(reinterpret_cast<char*>(&s), sizeof(s));
+        Node* curr = head;
         while(curr) {
-            size_t len = curr->val.size();
-            file.write((char*)&len, sizeof(len));
-            file.write(curr->val.c_str(), len);
+            size_t len = curr->data.size();
+            file.write(reinterpret_cast<char*>(&len), sizeof(len));
+            file.write(curr->data.c_str(), len);
             curr = curr->next;
+        }
+        file.close();
+    }
+
+    void loadFromBinary(const string& filename) {
+        clear();
+        ifstream file(filename, ios::binary);
+        if(!file.is_open()) return;
+        int s;
+        file.read(reinterpret_cast<char*>(&s), sizeof(s));
+        for(int i=0; i<s; ++i) {
+            size_t len;
+            file.read(reinterpret_cast<char*>(&len), sizeof(len));
+            char* buf = new char[len+1];
+            file.read(buf, len);
+            buf[len] = '\0';
+            pushBack(string(buf));
+            delete[] buf;
         }
         file.close();
     }
 };
+
+#endif

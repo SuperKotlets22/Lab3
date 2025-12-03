@@ -3,6 +3,7 @@ run_bench: \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   CMakeFiles/run_bench.dir/tests/bench_main.cpp.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcov.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
@@ -40,6 +41,8 @@ run_bench: \
 /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o:
 
 CMakeFiles/run_bench.dir/tests/bench_main.cpp.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcov.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so:
 
